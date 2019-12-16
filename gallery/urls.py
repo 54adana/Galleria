@@ -18,7 +18,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^gallery/',include('gallery.urls')),
-    url('^today/$',views.pics_of_day,name='picsToday'),
+    url(r'',include('images.urls')),
+
+    
     
 ]
