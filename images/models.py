@@ -9,11 +9,18 @@ class Category(models.Model):
         return self.name
         class Meta:
             ordering = ['name']
+    
 
 class Image(models.Model):
     title = models.CharField(max_length =60)
-    post = models.TextField()
-    Category = models.ForeignKey(Category)
+    category_object = models.ForeignKey(Category)
+    location = models.ForeignKey(Location)
+    photos_image = models.ImageField(upload_to = 'photos/')
+
+    @classmethod
+    def search_by_category(cls,search_term):
+        gallery = cls.objects.filter(category_object__name__icontains=search_term)
+        return gallery
 
 
 class Location (models.Model):
