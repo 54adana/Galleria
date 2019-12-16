@@ -1,3 +1,7 @@
+{% load bootstrap3 %}
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +12,22 @@
     {% else %}
       <title>Photo Gallery</title>
     {% endif %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+
+
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    {% endblock%}
 <body>
+
+    {% include "navbar.html" %}
+
+    {% block content %} <h1></h1> {%endblock%}
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+    {% endblock %}
     
     
 </body>
