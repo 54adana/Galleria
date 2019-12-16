@@ -1,1 +1,26 @@
-<h1>Welcome to gallery photos</h1>
+{%extends 'all-images/base.html'%} 
+{% block content %}
+<div class="container">
+
+  
+
+  <div class="row">
+
+  {% if category %}
+    {% for category in category %}
+      <div class="col-sm-6 col-md-3">
+          <h1>{{category.title}}</h1>
+          <h1>{{category.location}}</h1>
+          <h1>{{category.description}}</h1>
+
+
+
+      </div>
+      <div>
+          <img src="{{category.photos_image.url}}" alt="image">
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
