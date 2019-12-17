@@ -5,6 +5,7 @@
   
 
   <div class="row">
+    <h1>My Gallery</h1>
 
   {% if category %}
     {% for category in category %}
@@ -22,5 +23,13 @@
     {% endfor %}
   {% endif %}
   </div>
+
+  {%for image in images%}
+      
+  <a href="{{image.photos_image.url}}"><img class="images" src="{{image.photos_image.url}}"></a>
+        
+  
+  
+  {%endfor%}
 </div>
 {% endblock %}
