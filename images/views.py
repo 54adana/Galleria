@@ -5,8 +5,8 @@ import datetime as dt
 
 
 def photos(request):
-    
-    return render(request,'photos.html')
+    images = Image.get_images()
+    return render(request,'photos.html', {'images':images})
 
 def search_results(request):
     search = dt.image.get()
