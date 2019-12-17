@@ -14,8 +14,13 @@ class Category(models.Model):
 class Image(models.Model):
     title = models.CharField(max_length =60)
     category_object = models.ForeignKey(Category)
-    location = models.ForeignKey(Location)
+    # location = models.ForeignKey(Location)
     photos_image = models.ImageField(upload_to = 'photos/')
+
+    @classmethod
+    def get_images(cls):
+        images = cls.objects.all()
+        return images
 
     @classmethod
     def search_by_category(cls,search_term):
